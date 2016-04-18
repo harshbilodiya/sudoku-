@@ -124,5 +124,6 @@ void printGrid(int grid[N][N])
             cout <<grid[row][col]<<"  ";
             cout << endl;
     }
+    cout << endl;
 }
 
