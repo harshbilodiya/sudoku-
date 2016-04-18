@@ -1,2 +1,9 @@
-# sudoku-
-This repo contains the code to solves a sudoku puzzle defined in the CPP file
+# C++ Sudoku Solver
+
+### Group Members:
+
+#### Harsh Bilodiya
+#### Darryl Hammons
+#### Shan He
+
+## Basic Information
