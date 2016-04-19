@@ -10,7 +10,6 @@
 #include <cstdlib>
 #include <cstdio>
 #include <cstring>
-
 using namespace std;
 
 // Define global variables
@@ -29,15 +28,15 @@ void printGrid(int grid[N][N]);
 
 int main() {
 	// Have user enter thier paritially filled puzzle 
-	int grid[N][N] = {{3, 0, 6, 5, 0, 8, 4, 0, 0},
-                      {5, 2, 0, 0, 0, 0, 0, 0, 0},
-                      {0, 8, 7, 0, 0, 0, 0, 3, 1},
-                      {0, 0, 3, 0, 1, 0, 0, 8, 0},
-                      {9, 0, 0, 8, 6, 3, 0, 0, 5},
-                      {0, 5, 0, 0, 9, 0, 6, 0, 0},
-                      {1, 3, 0, 0, 0, 0, 2, 5, 0},
-                      {0, 0, 0, 0, 0, 0, 0, 7, 4},
-                      {0, 0, 5, 2, 0, 6, 3, 0, 0}};
+	int grid[N][N] = {{0, 6, 1, 0, 4, 3, 0, 2, 7},
+                         {3, 0, 4, 0, 0, 0, 0, 0, 6},
+                         {0, 2, 5, 0, 9, 0, 3, 0, 4},
+                         {0, 7, 0, 0, 1, 0, 0, 0, 2},
+                         {0, 0, 0, 0, 5, 0, 0, 0, 0},
+                         {6, 0, 0, 0, 3, 0, 0, 9, 0},
+                         {2, 0, 9, 0, 6, 0, 7, 1, 0},
+                         {1, 0, 0, 0, 0, 0, 8, 0, 5},
+                         {5, 3, 0, 1, 7, 0, 2, 4, 0}};
 	
 	// Print welcome message
 	printMessage();
@@ -47,9 +46,12 @@ int main() {
     	// Use printGrid function to print solution
     	printGrid(grid);
     	}
-    else 
-    	cout << "Sorry, no solutions" << endl;
-    	
+    else { 
+    		cout << "Sorry, no solutions" << endl;
+    	}
+    
+    cout << "Thanks for using our solver, I bet you can't solve it as fast as I did! (▀̿Ĺ̯▀̿ ̿) " << endl;
+    cout << endl;
     return 0;
 }
 
@@ -59,14 +61,15 @@ int main() {
 void printMessage() {
 	cout << endl;
 	cout << "*****************************************" << endl;
-        cout << "*****************************************" << endl;
+    cout << "*****************************************" << endl;
 	cout << "**                HELLO                **" << endl;
 	cout << "**    WELCOME TO OUR SUDOKU SOLVER     **" << endl;
-        cout << "*****************************************" << endl;
-        cout << "*****************************************" << endl;
+    cout << "*****************************************" << endl;
+    cout << "*****************************************" << endl;
 }                
 
 // Assign values to all unassigned locations for Sudoku solution
+// Also used a recursion on solveSudoku untill the entire puzzle is solved
 bool solveSudoku(int grid[N][N]) {
     int row, col;
     if (!FindEmptyLocation(grid, row, col))
@@ -85,6 +88,7 @@ bool solveSudoku(int grid[N][N]) {
 }
 
 // Searches the grid to find an entry that is still unassigned
+// This is a helper function
 bool FindEmptyLocation(int grid[N][N], int &row, int &col) {
     for (row = 0; row < N; row++)
         for (col = 0; col < N; col++)
