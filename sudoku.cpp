@@ -42,7 +42,7 @@ int main() {
 	printMessage();
                       
     if (solveSudoku(grid) == true) {
-    	cout << "The solution to the sudoku defined in the program is: " << endl << endl;
+    	cout << "Solution to sudoku defined in program is: " << endl << endl;
     	// Use printGrid function to print solution
     	printGrid(grid);
     	}
@@ -61,11 +61,11 @@ int main() {
 void printMessage() {
 	cout << endl;
 	cout << "*****************************************" << endl;
-    cout << "*****************************************" << endl;
+        cout << "*****************************************" << endl;
 	cout << "**                HELLO                **" << endl;
 	cout << "**    WELCOME TO OUR SUDOKU SOLVER     **" << endl;
-    cout << "*****************************************" << endl;
-    cout << "*****************************************" << endl;
+        cout << "*****************************************" << endl;
+        cout << "*****************************************" << endl;
 }                
 
 // Assign values to all unassigned locations for Sudoku solution
