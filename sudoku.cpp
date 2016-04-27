@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <cstring>
+#include <ctime>
 using namespace std;
 
 // Define global variables
@@ -28,19 +29,22 @@ void printGrid(int grid[N][N]);
 
 int main() {
 	// Have user enter thier paritially filled puzzle 
-	int grid[N][N] = {{0, 6, 1, 0, 4, 3, 0, 2, 7},
-                         {3, 0, 4, 0, 0, 0, 0, 0, 6},
-                         {0, 2, 5, 0, 9, 0, 3, 0, 4},
-                         {0, 7, 0, 0, 1, 0, 0, 0, 2},
-                         {0, 0, 0, 0, 5, 0, 0, 0, 0},
-                         {6, 0, 0, 0, 3, 0, 0, 9, 0},
-                         {2, 0, 9, 0, 6, 0, 7, 1, 0},
-                         {1, 0, 0, 0, 0, 0, 8, 0, 5},
-                         {5, 3, 0, 1, 7, 0, 2, 4, 0}};
+	int grid[N][N] ={{0, 9, 0, 0, 0, 0, 0, 0, 5},
+                         {0, 0, 1, 9, 8, 0, 0, 7, 0},
+                         {3, 2, 0, 4, 5, 0, 0, 0, 0},
+                         {0, 0, 9, 0, 4, 2, 5, 0, 8},
+                         {8, 4, 0, 0, 6, 0, 0, 3, 1},
+                         {5, 0, 6, 8, 1, 0, 4, 0, 0},
+                         {0, 0, 0, 0, 2, 5, 0, 8, 3},
+                         {0, 8, 0, 0, 9, 4, 7, 0, 0},
+                         {7, 0, 0, 0, 0, 0, 0, 9, 0}};
 	
 	// Print welcome message
 	printMessage();
-                      
+    
+    // Start timer to time function
+    clock_t begin = clock();
+    
     if (solveSudoku(grid) == true) {
     	cout << "Solution to sudoku defined in program is: " << endl << endl;
     	// Use printGrid function to print solution
@@ -51,7 +55,10 @@ int main() {
     	}
     
     cout << "Thanks for using our solver, I bet you can't solve it as fast as I did! (▀̿Ĺ̯▀̿ ̿) " << endl;
-    cout << endl;
+    clock_t end = clock();
+    double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+    cout << "It took " << elapsed_secs << " seconds to solve this puzzle" << endl;
+    
     return 0;
 }
 
